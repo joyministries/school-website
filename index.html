@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lambton Christian School — Germiston</title>
+<meta name="description" content="Lambton Christian School: affordable, Bible-based Christian education from Grade RR to Grade 9, following the CAPS curriculum, in Lambton Gardens, Germiston.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1D2B45;
+    --navy-deep: #131E33;
+    --parchment: #F6F1E2;
+    --parchment-dim: #EFE8D4;
+    --gold: #C89B3C;
+    --gold-deep: #A87D28;
+    --green: #2F5233;
+    --ink: #24272C;
+    --line: rgba(29,43,69,0.16);
+    --max: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.11  0 0 0 0 0.17  0 0 0 0 0.27  0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+      var(--parchment);
+    color: var(--ink);
+    font-family: "Karla", -apple-system, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  h1,h2,h3{
+    font-family: "Bitter", Georgia, serif;
+    color: var(--navy);
+    margin: 0 0 0.5em 0;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+  }
+
+  p { max-width: 62ch; }
+  a { color: inherit; }
+  img, svg { display:block; max-width:100%; }
+
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    background: var(--navy);
+    position: sticky; top:0; z-index: 50;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top: 14px; padding-bottom: 14px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    color: var(--parchment); text-decoration:none;
+  }
+  .brand svg{ width:38px; height:38px; flex-shrink:0; }
+  .brand-text{ line-height:1.15; }
+  .brand-text .name{ font-family:"Bitter",serif; font-size:1.05rem; font-weight:600; display:block; }
+  .brand-text .place{ font-size:0.78rem; color: rgba(246,241,226,0.65); }
+
+  nav.primary{ display:flex; align-items:center; gap: 28px; }
+  nav.primary a{
+    color: rgba(246,241,226,0.88); text-decoration:none; font-size:0.94rem; font-weight:500;
+    padding-bottom: 4px; border-bottom: 2px solid transparent;
+  }
+  nav.primary a:hover{ border-bottom-color: var(--gold); color: var(--parchment); }
+
+  .btn{
+    display:inline-block; font-family:"Karla",sans-serif; font-weight:600; font-size:0.92rem;
+    padding: 11px 22px; border-radius: 3px; text-decoration:none; border: 1.5px solid transparent;
+    cursor:pointer;
+  }
+  .btn-gold{ background: var(--gold); color: var(--navy-deep); }
+  .btn-gold:hover{ background: var(--gold-deep); }
+  .btn-outline{ background:transparent; border-color: rgba(246,241,226,0.5); color: var(--parchment); }
+  .btn-outline:hover{ border-color: var(--gold); color: var(--gold); }
+
+  .nav-toggle{ display:none; }
+  .nav-toggle-label{
+    display:none; color: var(--parchment); cursor:pointer; padding:6px;
+  }
+
+  @media (max-width: 860px){
+    nav.primary{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      background: var(--navy); flex-direction:column; align-items:flex-start;
+      padding: 8px 28px 22px; gap:16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-toggle:checked ~ nav.primary{ display:flex; }
+    .nav-toggle-label{ display:block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background: var(--navy);
+    color: var(--parchment);
+    padding: 76px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items:center;
+  }
+  .kicker{
+    font-family:"Bitter",serif; font-style: italic; color: var(--gold);
+    font-size: 1.02rem; margin: 0 0 18px;
+  }
+  .hero h1{
+    color: var(--parchment); font-size: clamp(2.1rem, 4vw, 3.1rem); line-height:1.12;
+    margin-bottom: 22px;
+  }
+  .hero p.lede{
+    color: rgba(246,241,226,0.82); font-size: 1.08rem; max-width: 46ch; margin-bottom: 30px;
+  }
+  .hero .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  /* chalkboard illustration */
+  .board{
+    background: linear-gradient(160deg, #24382c, #1c2c22);
+    border: 10px solid #6b4a2e;
+    border-radius: 6px;
+    padding: 30px 32px 26px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35), inset 0 0 40px rgba(0,0,0,0.25);
+    position: relative;
+    animation: chalk-in 900ms ease-out both;
+  }
+  @keyframes chalk-in{
+    from{ opacity:0; transform: translateY(10px) rotate(-0.6deg); }
+    to{ opacity:1; transform: translateY(0) rotate(-0.6deg); }
+  }
+  .board::before{
+    content:""; position:absolute; inset:0; border-radius:2px;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.025) 0, transparent 45%);
+    pointer-events:none;
+  }
+  .board h3{
+    font-family:"Karla", sans-serif; color:#f5efdc; font-size:1.15rem; font-weight:700;
+    text-shadow: 0 0 1px rgba(245,239,220,0.5), 0 0 6px rgba(245,239,220,0.15);
+    letter-spacing: 0.01em;
+    margin-bottom: 10px; transform: rotate(-0.6deg); display:inline-block;
+  }
+  .board ul{ list-style:none; margin:0; padding:0; columns: 2; column-gap: 22px; }
+  .board li{
+    font-family:"Karla", sans-serif; color:#efe7cf; font-size:1rem; font-weight:500;
+    text-shadow: 0 0 1px rgba(239,231,207,0.45), 0 0 5px rgba(239,231,207,0.12);
+    padding: 5px 0 5px 2px; break-inside: avoid; opacity: 0.92;
+    display:inline-block;
+  }
+  .board li:nth-child(2n){ transform: skewX(-1.2deg) translateY(1px); }
+  .board li:nth-child(3n){ transform: skewX(0.8deg); }
+  .board li:nth-child(5n){ transform: skewX(-0.5deg) translateX(2px); opacity: 0.84; }
+  .board li:nth-child(4){ font-size: 0.95rem; }
+  .board li:nth-child(7){ font-size: 1.03rem; }
+  .board .chalk-underline{
+    display:block; width: 88%; height: 8px;
+    margin: 6px 0 16px;
+    background: none;
+  }
+  .board .chalk-underline svg{ width:100%; height:100%; overflow:visible; }
+  .board footer-note{ display:block; }
+  .board .signature{
+    font-family:"Karla", sans-serif; font-style: italic; color: #d7cba3; font-size:0.86rem; margin-top:10px; opacity:0.8;
+  }
+
+  @media (max-width: 860px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Facts strip ---------- */
+  .facts{
+    background: var(--parchment-dim);
+    border-bottom: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+  }
+  .facts .wrap{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  .fact{
+    padding: 26px 24px; border-left: 1px solid var(--line);
+  }
+  .fact:first-child{ border-left: none; }
+  .fact .num{ font-family:"Bitter",serif; font-size:1.7rem; color: var(--navy); font-weight:600; }
+  .fact .label{ font-size:0.86rem; color: #5a5f66; margin-top:2px; }
+  @media (max-width: 760px){
+    .facts .wrap{ grid-template-columns: repeat(2, 1fr); }
+    .fact:nth-child(3){ border-left:none; }
+  }
+
+  /* ---------- About ---------- */
+  section{ padding: 76px 0; }
+  .about .wrap{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items:start; }
+  .about h2{ font-size: 2rem; }
+  .about p{ color:#3c3f45; }
+  .about-card{
+    background: var(--parchment); border: 1px solid var(--line); border-radius: 4px;
+    padding: 26px 26px 22px;
+  }
+  .about-card h4{
+    font-family:"Karla",sans-serif; font-size:0.78rem; text-transform:none;
+    color: var(--green); font-weight:700; margin: 0 0 14px;
+  }
+  .about-card dl{ margin:0; }
+  .about-card .row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding: 9px 0; border-bottom: 1px dashed var(--line); font-size:0.93rem;
+  }
+  .about-card .row:last-child{ border-bottom:none; }
+  .about-card dt{ color:#5a5f66; }
+  .about-card dd{ margin:0; font-weight:600; color: var(--navy); text-align:right; }
+
+  @media (max-width: 860px){ .about .wrap{ grid-template-columns: 1fr; } }
+
+  /* ---------- Values: ruled notebook entries ---------- */
+  .values{ background: var(--parchment-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .values h2{ font-size:2rem; margin-bottom: 8px; }
+  .values > .wrap > p{ color:#3c3f45; margin-bottom: 44px; }
+  .value-list{ border-top: 1px solid var(--line); }
+  .value-entry{
+    display:grid; grid-template-columns: 220px 1fr; gap: 28px;
+    padding: 26px 0; border-bottom: 1px solid var(--line);
+  }
+  .value-entry h3{ font-size:1.25rem; margin-bottom:6px; }
+  .value-entry .tag{
+    font-family:"Bitter",serif; font-style:italic; color: var(--green); font-size:0.98rem;
+  }
+  .value-entry p{ color:#3c3f45; margin:0; max-width:60ch; }
+  @media (max-width: 700px){
+    .value-entry{ grid-template-columns: 1fr; gap:6px; }
+  }
+
+  /* ---------- Grade timeline ---------- */
+  .grades .wrap > p{ color:#3c3f45; margin-bottom: 46px; }
+  .timeline{
+    display:flex; overflow-x:auto; gap:0; padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tl-node{
+    flex: 0 0 auto; width: 108px; text-align:center; position:relative; padding-top: 26px;
+  }
+  .tl-node::before{
+    content:""; position:absolute; top:8px; left:50%; transform: translateX(-50%);
+    width:14px; height:14px; border-radius:50%; background: var(--gold); border:3px solid var(--parchment);
+    box-shadow: 0 0 0 1.5px var(--gold-deep);
+    z-index:2;
+  }
+  .tl-node::after{
+    content:""; position:absolute; top:14px; left:0; right:0; height:2px; background: var(--line); z-index:1;
+  }
+  .tl-node:first-child::after{ left:50%; }
+  .tl-node:last-child::after{ right:50%; }
+  .tl-node .g{ font-family:"Bitter",serif; font-weight:600; color: var(--navy); font-size:1.05rem; }
+  .tl-node .a{ font-size:0.78rem; color:#5a5f66; margin-top:2px; }
+
+  /* ---------- Verse band ---------- */
+  .verse{
+    background: var(--navy); color: var(--parchment); padding: 78px 0;
+    text-align:center;
+  }
+  .verse blockquote{
+    margin:0 auto; max-width: 62ch; font-family:"Bitter",serif; font-style:italic;
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height:1.5; color: #f2ecdb;
+  }
+  .verse cite{
+    display:block; margin-top:22px; font-style:normal; color: var(--gold);
+    font-family:"Karla",sans-serif; font-weight:600; font-size:0.92rem;
+  }
+
+  /* ---------- Enrol / contact ---------- */
+  .enrol .wrap{ display:grid; grid-template-columns: 0.95fr 1.05fr; gap: 60px; }
+  .enrol h2{ font-size:2rem; }
+  .enrol p.intro{ color:#3c3f45; }
+  .contact-list{ list-style:none; margin: 28px 0 0; padding:0; }
+  .contact-list li{
+    display:flex; gap:14px; padding: 12px 0; border-top: 1px solid var(--line); font-size:0.96rem;
+  }
+  .contact-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .contact-list .k{ color: var(--green); flex-shrink:0; width:30px; }
+  .contact-list a{ color: var(--navy); text-decoration: underline; text-decoration-color: var(--line); }
+  .contact-list a:hover{ text-decoration-color: var(--gold); }
+
+  .map-frame{
+    border-radius: 4px; overflow:hidden; border: 1px solid var(--line);
+    height: 100%; min-height: 320px;
+  }
+  .map-frame iframe{ width:100%; height:100%; border:0; display:block; min-height: 320px; }
+
+  @media (max-width: 860px){ .enrol .wrap{ grid-template-columns:1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    background: var(--navy-deep); color: rgba(246,241,226,0.75); padding: 40px 0 30px;
+    font-size: 0.9rem;
+  }
+  footer.site .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  footer.site a{ color: rgba(246,241,226,0.75); text-decoration:none; }
+  footer.site a:hover{ color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 4L42 11V22C42 33 34.5 41 24 44C13.5 41 6 33 6 22V11L24 4Z" fill="#1D2B45" stroke="#C89B3C" stroke-width="2"/>
+        <path d="M24 15V33M16 21H32M18 27H30" stroke="#C89B3C" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">Lambton Christian School</span>
+        <span class="place">Lambton Gardens, Germiston</span>
+      </span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+    <nav class="primary">
+      <a href="#about">About us</a>
+      <a href="#values">Our values</a>
+      <a href="#grades">Grades &amp; curriculum</a>
+      <a href="#enrol">Enrol</a>
+      <a class="btn btn-outline" href="#enrol">Book a visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Established 2009 · Germiston, Gauteng</p>
+        <h1>A Bible-based education your child can grow into.</h1>
+        <p class="lede">Lambton Christian School offers an affordable, CAPS-aligned education from Grade RR to Grade 9, in a school small enough that every child is known by name.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#enrol">Enquire about a place</a>
+          <a class="btn btn-outline" href="#grades">See our grades</a>
+        </div>
+      </div>
+      <div class="board" aria-label="Illustration of a classroom chalkboard listing the school's grades">
+        <h3>Grades we teach</h3>
+        <span class="chalk-underline">
+          <svg viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 6 Q 30 2, 60 6 T 120 5 T 180 7 T 240 4 T 298 6" stroke="#f5efdc" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </span>
+        <ul>
+          <li>Grade RR</li>
+          <li>Grade R</li>
+          <li>Grade 1</li>
+          <li>Grade 2</li>
+          <li>Grade 3</li>
+          <li>Grade 4</li>
+          <li>Grade 5</li>
+          <li>Grade 6</li>
+          <li>Grade 7</li>
+          <li>Grade 8</li>
+          <li>Grade 9</li>
+        </ul>
+        <span class="signature">— CAPS curriculum, taught with care</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap">
+      <div class="fact"><div class="num">2009</div><div class="label">School founded</div></div>
+      <div class="fact"><div class="num">RR–9</div><div class="label">Grades offered</div></div>
+      <div class="fact"><div class="num">CAPS</div><div class="label">Curriculum followed</div></div>
+      <div class="fact"><div class="num">1</div><div class="label">Campus, Lambton Gardens</div></div>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <h2>Independent, affordable, and rooted in scripture</h2>
+        <p>Lambton Christian School was founded to make a Bible-based education reachable for families in Germiston, without asking them to compromise on academic quality. Every class follows South Africa's CAPS curriculum, so learners build the same foundation as any other school — while growing up in a happy, loving, and caring environment.</p>
+        <p>We believe character is taught the same way arithmetic is: daily, patiently, and by example. Our staff aim to send learners forward not only prepared for Grade 10, but grounded in who they are.</p>
+      </div>
+      <div class="about-card">
+        <h4>At a glance</h4>
+        <dl>
+          <div class="row"><dt>Type</dt><dd>Independent Christian school</dd></div>
+          <div class="row"><dt>Grades</dt><dd>RR to 9</dd></div>
+          <div class="row"><dt>Curriculum</dt><dd>CAPS</dd></div>
+          <div class="row"><dt>Founded</dt><dd>2009</dd></div>
+          <div class="row"><dt>Location</dt><dd>Lambton Gardens, Germiston</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="values" id="values">
+    <div class="wrap">
+      <h2>What guides our classrooms</h2>
+      <p>Three commitments sit behind every lesson, assembly, and report card.</p>
+      <div class="value-list">
+        <div class="value-entry">
+          <div><span class="tag">Foundation</span><h3>Bible-based teaching</h3></div>
+          <p>Scripture isn't a separate period on the timetable — it shapes how we teach every subject and how staff treat every learner, every day.</p>
+        </div>
+        <div class="value-entry">
+          <div><span class="tag">Standard</span><h3>Academic excellence</h3></div>
+          <p>We follow the CAPS curriculum in full, so learners meet the same national benchmarks as any South African school, taught in smaller classes.</p>
+        </div>
+        <div class="value-entry">
+          <div><span class="tag">Aim</span><h3>Godly character</h3></div>
+          <p>We measure success beyond test scores: honesty, kindness, and responsibility are treated as outcomes we teach toward, not happy accidents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grades" id="grades">
+    <div class="wrap">
+      <h2>From Grade RR to Grade 9, one path</h2>
+      <p>Learners move through eleven grades on our campus before continuing to high school — the same core curriculum, taught with continuity from one teacher and grade to the next.</p>
+      <div class="timeline">
+        <div class="tl-node"><div class="g">RR</div><div class="a">Age 5</div></div>
+        <div class="tl-node"><div class="g">R</div><div class="a">Age 6</div></div>
+        <div class="tl-node"><div class="g">1</div><div class="a">Age 7</div></div>
+        <div class="tl-node"><div class="g">2</div><div class="a">Age 8</div></div>
+        <div class="tl-node"><div class="g">3</div><div class="a">Age 9</div></div>
+        <div class="tl-node"><div class="g">4</div><div class="a">Age 10</div></div>
+        <div class="tl-node"><div class="g">5</div><div class="a">Age 11</div></div>
+        <div class="tl-node"><div class="g">6</div><div class="a">Age 12</div></div>
+        <div class="tl-node"><div class="g">7</div><div class="a">Age 13</div></div>
+        <div class="tl-node"><div class="g">8</div><div class="a">Age 14</div></div>
+        <div class="tl-node"><div class="g">9</div><div class="a">Age 15</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="verse">
+    <div class="wrap">
+      <blockquote>
+        &ldquo;Train up a child in the way he should go, and when he is old he will not depart from it.&rdquo;
+        <cite>Proverbs 22:6</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="enrol" id="enrol">
+    <div class="wrap">
+      <div>
+        <h2>Come and see the classroom</h2>
+        <p class="intro">The best way to know if Lambton Christian School is right for your child is to visit. Call or email us to arrange a time, or drop by during school hours.</p>
+        <ul class="contact-list">
+          <li><span class="k">Tel</span><a href="tel:+27118240735">011 824 0735</a></li>
+          <li><span class="k">Mail</span><a href="mailto:info@lambtonschool.co.za">info@lambtonschool.co.za</a></li>
+          <li><span class="k">Visit</span><span>18 Neels Road, Lambton Gardens, Germiston, 1428</span></li>
+          <li><span class="k">Post</span><span>P.O. Box 4056, Germiston South, 1411</span></li>
+        </ul>
+      </div>
+      <div class="map-frame">
+        <iframe
+          title="Map showing Lambton Christian School, 18 Neels Road, Lambton Gardens, Germiston"
+          loading="lazy"
+          src="https://maps.google.com/maps?q=18%20Neels%20Road%2C%20Lambton%20Gardens%2C%20Germiston%2C%201428&t=&z=15&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© <span id="year"></span> Lambton Christian School, Germiston.</span>
+    <a href="mailto:info@lambtonschool.co.za">info@lambtonschool.co.za</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
